@@ -7,31 +7,32 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-<bean id="triangle" class="com.pankaj.Triangle">
-	<property name="pointA"  ref="zeroPoint"/>
-		
-	
-	<property name="pointB">
-			<bean  class ="com.pankaj.Point">
-					<property name="x" value="-20"/>
-					<property name="y" value="0"/>
-			</bean>
-	</property>
-	<property name="pointC">
-			<bean class ="com.pankaj.Point">
-					<property name="x" value="20"/>
-					<property name="y" value="0"/>
-			</bean>
-	</property>
-</bean>
+	<bean id="triangle" class="com.pankaj.Triangle">
+			<property name="points"  >
+				<list>
+					<ref bean="zeroPoint" />
+					<ref bean="point2" />
+					<ref bean="point3" />
+				</list>
+			</property>
+	</bean>
 <!-- <constructor-arg index="0" value="Equilateral"/>
 <constructor-arg index="1" value="20"/> -->
 
-<bean id="zeroPoint" class ="com.pankaj.Point">
-	<property name="x" value="0"/>
-	<property name="y" value="0"/>
-</bean>
-
-<alias name="triangle" alias="triangle-alias"></alias>
+	<bean id="zeroPoint" class ="com.pankaj.Point">
+			<property name="x" value="0"/>
+			<property name="y" value="0"/>
+	</bean>
+	
+	<bean id="point2" class ="com.pankaj.Point">
+			<property name="x" value="-20"/>
+			<property name="y" value="0"/>
+	</bean>
+	
+ 	<bean id="point3" class ="com.pankaj.Point">
+			<property name="x" value="20"/>
+			<property name="y" value="0"/>
+	</bean>
+ 
 
 </beans>
