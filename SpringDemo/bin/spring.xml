@@ -5,7 +5,7 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
-    http://www.springframework.org/schema/context/spring-context.xsd">
+    http://www.springframework.org/schema/context/spring-context.xsd" default-init-method="myInit"  default-destroy-method="cleanUp">
     
     <!--  <bean id="parenttriangle" class="com.pankaj.Triangle" abstract="true">
     	<property name="points">
@@ -15,10 +15,8 @@
     	</property>
     </bean>-->
 
-	<bean id="triangle" class="com.pankaj.Triangle">
-		<property name="pointA" ref="pointA" />
-		<property name="pointB" ref="pointB" />
-		<property name="pointC" ref="pointC" />
+	<bean id="triangle" class="com.pankaj.Triangle" autowire="byName"  init-method="myInit" destroy-method="cleanUp">
+		
 	</bean>
 <!-- <constructor-arg index="0" value="Equilateral"/>
 <constructor-arg index="1" value="20"/> -->

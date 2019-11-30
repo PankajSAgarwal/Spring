@@ -1,13 +1,7 @@
 package com.pankaj;
 
-import java.util.List;
-
-import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
 
 public class Triangle implements InitializingBean,DisposableBean{
 	
@@ -101,18 +95,27 @@ public class Triangle implements InitializingBean,DisposableBean{
 
 
 
-	@Override
-	public void afterPropertiesSet() throws Exception {
-		System.out.println("InitializeBean init method called for Triangle");
-		
+	
+	  @Override public void afterPropertiesSet() throws Exception {
+	  System.out.println("InitializeBean init method called for Triangle");
+	  
+	  }
+	  
+	  
+	  
+	  @Override public void destroy() throws Exception {
+	  System.out.println("DisposableBean destroy method called ");
+	  
+	  }
+	 
+	
+	public void myInit() {
+	
+		System.out.println("My init method called for Triangle");
 	}
-
-
-
-	@Override
-	public void destroy() throws Exception {
-		System.out.println("DisposableBean destroy method called ");
-		
+	
+	public void cleanUp() {
+		System.out.println("My destroy method called for Triangle");
 	}
 
 }
