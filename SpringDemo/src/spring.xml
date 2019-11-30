@@ -7,13 +7,21 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
     
-    <bean id="parenttriangle" class="com.pankaj.Triangle">
-    	<property name="pointA" ref="pointA" />
+    <bean id="parenttriangle" class="com.pankaj.Triangle" abstract="true">
+    	<property name="points">
+    		<list>
+    			<ref bean="pointA" />
+    		</list>
+    	</property>
     </bean>
 
-	<bean id="triangle1" class="com.pankaj.Triangle" parent="parenttriangle">
-		<property name="pointB" ref="pointB" />
-		<property name="pointC" ref="pointC" />	
+	<bean id="triangle1" class="com.pankaj.Triangle" parent="parenttriangle" >
+		<property name="points" >
+			<list merge="true">
+				<ref bean="pointB" />
+			</list>	
+			
+		</property>
 	</bean>
 	
 	<bean id="triangle2" class="com.pankaj.Triangle" parent="parenttriangle">
