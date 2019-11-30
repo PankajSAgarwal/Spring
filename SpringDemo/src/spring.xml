@@ -7,25 +7,18 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
     
-    <bean id="parenttriangle" class="com.pankaj.Triangle" abstract="true">
+    <!--  <bean id="parenttriangle" class="com.pankaj.Triangle" abstract="true">
     	<property name="points">
     		<list>
     			<ref bean="pointA" />
     		</list>
     	</property>
-    </bean>
+    </bean>-->
 
-	<bean id="triangle1" class="com.pankaj.Triangle" parent="parenttriangle" >
-		<property name="points" >
-			<list merge="true">
-				<ref bean="pointB" />
-			</list>	
-			
-		</property>
-	</bean>
-	
-	<bean id="triangle2" class="com.pankaj.Triangle" parent="parenttriangle">
+	<bean id="triangle" class="com.pankaj.Triangle">
+		<property name="pointA" ref="pointA" />
 		<property name="pointB" ref="pointB" />
+		<property name="pointC" ref="pointC" />
 	</bean>
 <!-- <constructor-arg index="0" value="Equilateral"/>
 <constructor-arg index="1" value="20"/> -->
