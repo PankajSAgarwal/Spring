@@ -1,6 +1,6 @@
 package com.pankaj;
 
-public class Triangle {
+public class Triangle implements Shape{
 	
 	//private List<Point> points;
 	
@@ -64,7 +64,7 @@ public class Triangle {
 
 	public void draw() {
 		
-		
+			System.out.println("Drawing Triangle");
 			System.out.println("Point  A= ("+ pointA.getX() + " , " +pointA.getY() +")");
 			System.out.println("Point  B= ("+ pointB.getX() + " , " +pointB.getY() +")");
 			System.out.println("Point  C= ("+ pointC.getX() + " , " +pointC.getY() +")");

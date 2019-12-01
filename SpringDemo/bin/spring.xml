@@ -19,6 +19,10 @@
 		<property name="pointA" ref="pointA" />
 		<property name="pointB" ref="pointB" />
 		<property name="pointC" ref="pointC" />
+	</bean>
+	
+	<bean id="circle" class="com.pankaj.Circle" >
+		<property name="center" ref="pointA" />
 		
 	</bean>
 <!-- <constructor-arg index="0" value="Equilateral"/>
