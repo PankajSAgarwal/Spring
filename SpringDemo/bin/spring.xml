@@ -22,7 +22,7 @@
 	</bean>
 	
 	<bean id="circle" class="com.pankaj.Circle" >
-		<property name="center" ref="pointA" />
+		<property name = "center" ref="pointA" />
 		
 	</bean>
 <!-- <constructor-arg index="0" value="Equilateral"/>
@@ -48,6 +48,6 @@
 	<bean class = "org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" >
 		<property name="locations" value="pointsconfig.properties" />
 	</bean>
- 
+ <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />
 
 </beans>
