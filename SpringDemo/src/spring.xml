@@ -15,7 +15,10 @@
     	</property>
     </bean>-->
 
-	<bean id="triangle" class="com.pankaj.Triangle" autowire="byName"  init-method="myInit" destroy-method="cleanUp">
+	<bean id="triangle" class="com.pankaj.Triangle" >
+		<property name="pointA" ref="pointA" />
+		<property name="pointB" ref="pointB" />
+		<property name="pointC" ref="pointC" />
 		
 	</bean>
 <!-- <constructor-arg index="0" value="Equilateral"/>
@@ -35,6 +38,8 @@
 			<property name="x" value="20"/>
 			<property name="y" value="0"/>
 	</bean>
+	
+	<bean class="com.pankaj.DisplayBeanNamePostProcessor" />
  
 
 </beans>

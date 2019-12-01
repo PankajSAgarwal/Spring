@@ -3,7 +3,7 @@ package com.pankaj;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
-public class Triangle implements InitializingBean,DisposableBean{
+public class Triangle {
 	
 	//private List<Point> points;
 	
@@ -96,26 +96,25 @@ public class Triangle implements InitializingBean,DisposableBean{
 
 
 	
-	  @Override public void afterPropertiesSet() throws Exception {
-	  System.out.println("InitializeBean init method called for Triangle");
-	  
-	  }
-	  
-	  
-	  
-	  @Override public void destroy() throws Exception {
-	  System.out.println("DisposableBean destroy method called ");
-	  
-	  }
-	 
-	
-	public void myInit() {
-	
-		System.out.println("My init method called for Triangle");
-	}
-	
-	public void cleanUp() {
-		System.out.println("My destroy method called for Triangle");
-	}
-
+	/*
+	 * @Override public void afterPropertiesSet() throws Exception {
+	 * System.out.println("InitializeBean init method called for Triangle");
+	 * 
+	 * }
+	 * 
+	 * 
+	 * 
+	 * @Override public void destroy() throws Exception {
+	 * System.out.println("DisposableBean destroy method called ");
+	 * 
+	 * }
+	 * 
+	 * 
+	 * public void myInit() {
+	 * 
+	 * System.out.println("My init method called for Triangle"); }
+	 * 
+	 * public void cleanUp() {
+	 * System.out.println("My destroy method called for Triangle"); }
+	 */
 }
