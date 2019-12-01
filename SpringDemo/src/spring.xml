@@ -5,7 +5,7 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
-    http://www.springframework.org/schema/context/spring-context.xsd" default-init-method="myInit"  default-destroy-method="cleanUp">
+    http://www.springframework.org/schema/context/spring-context.xsd" >
     
     <!--  <bean id="parenttriangle" class="com.pankaj.Triangle" abstract="true">
     	<property name="points">
@@ -15,25 +15,24 @@
     	</property>
     </bean>-->
 
-	<bean id="triangle" class="com.pankaj.Triangle" >
+	<!--  <bean id="triangle" class="com.pankaj.Triangle" >
 		<property name="pointA" ref="pointA" />
 		<property name="pointB" ref="pointB" />
 		<property name="pointC" ref="pointC" />
-	</bean>
+	</bean>-->
 	
-	<bean id="circle" class="com.pankaj.Circle" >
-		<property name = "center" ref="pointA" />
-		
-	</bean>
+	
 <!-- <constructor-arg index="0" value="Equilateral"/>
 <constructor-arg index="1" value="20"/> -->
 
 	<bean id="pointA" class ="com.pankaj.Point">
+			<qualifier value="circleRelated" />
 			<property name="x" value="${pointA.pointX}"/>
 			<property name="y" value="${pointA.pointY}"/>
 	</bean>
 	
 	<bean id="pointB" class ="com.pankaj.Point">
+		<qualifier value="triangleRelated" />
 			<property name="x" value="-20"/>
 			<property name="y" value="0"/>
 	</bean>
@@ -41,13 +40,23 @@
  	<bean id="pointC" class ="com.pankaj.Point">
 			<property name="x" value="20"/>
 			<property name="y" value="0"/>
+	</bean> 
+	
+	<bean id="circle" class="com.pankaj.Circle" >
+		
+		
 	</bean>
 	
 	<!--  <bean class="com.pankaj.DisplayBeanNamePostProcessor" />-->
-	<bean class = "com.pankaj.MyBeanFactoryPP" />
+	<!--  <bean class = "com.pankaj.MyBeanFactoryPP" />-->
 	<bean class = "org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" >
 		<property name="locations" value="pointsconfig.properties" />
 	</bean>
- <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />
+ <!-- <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />
+ 
+ <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" /> -->
+ <!--<bean class="org.springframework.beans.factory.annotation.QualifierAnnotationAutowireCandidateResolver" />-->
+ 
+ <context:annotation-config />
 
 </beans>

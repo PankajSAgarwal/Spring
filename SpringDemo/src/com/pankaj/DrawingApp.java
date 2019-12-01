@@ -17,7 +17,7 @@ public class DrawingApp {
 		
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 		context.registerShutdownHook();
-		Shape shape = (Shape)context.getBean("circle");
+		Shape shape = (Circle)context.getBean("circle");
 		shape.draw();
 		
 		
