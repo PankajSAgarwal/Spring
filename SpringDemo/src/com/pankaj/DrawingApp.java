@@ -20,6 +20,8 @@ public class DrawingApp {
 		Shape shape = (Circle)context.getBean("circle");
 		shape.draw();
 		
+		//System.out.println(context.getMessage("greetings", null, "Default greeting", null));
+		
 		
 
 	}
