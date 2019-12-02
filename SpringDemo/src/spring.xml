@@ -42,10 +42,7 @@
 			<property name="y" value="0"/>
 	</bean> 
 	
-	<bean id="circle" class="com.pankaj.Circle" >
-		
-		
-	</bean>
+	
 	
 	<!--  <bean class="com.pankaj.DisplayBeanNamePostProcessor" />-->
 	<!--  <bean class = "com.pankaj.MyBeanFactoryPP" />-->
@@ -58,5 +55,6 @@
  <!--<bean class="org.springframework.beans.factory.annotation.QualifierAnnotationAutowireCandidateResolver" />-->
  
  <context:annotation-config />
+ <context:component-scan base-package="com.pankaj" />
 
 </beans>
