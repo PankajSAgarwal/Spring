@@ -12,14 +12,14 @@ public class LoggingAspect {
 	
 	@Before("allCircleMethods()")
 	public void LoggingAdvice(JoinPoint joinPoint) {
-		//System.out.println("Advice run . All circle Get method called .");
-		System.out.println(joinPoint.toString());
-		System.out.println(joinPoint.getTarget());
 		
-		Circle circle = (Circle)joinPoint.getTarget();
 		
 	}
 	
+	@Before("args(name)")
+	public void stringArgumentMethods(String name) {
+		System.out.println("A method that takes String arguments has been called .The value is " + name);
+	}
 	/*@Before("allGetters()")
 	public void secondAdvice() {
 		System.out.println("Second advice executed");
