@@ -19,15 +19,15 @@ public class LoggingAspect {
 		
 	}
 	
-	@AfterReturning("args(name)")
-	public void stringArgumentMethods(String name) {
-		System.out.println("A method that takes String arguments has been called .The value is " + name);
+	@AfterReturning(pointcut = "args(name)",returning = "returnString")
+	public void stringArgumentMethods(String name, String returnString) {
+		System.out.println("A method that takes String arguments has been called .The value is " + name + "The output value is "+returnString);
 	}
 	
-	@AfterThrowing("args(name)")
-	public void exceptionAdvice(String name) {
+	@AfterThrowing(pointcut="args(name)", throwing = "ex")
+	public void exceptionAdvice(String name,RuntimeException ex) {
 		
-		System.out.println("An exception has been thrown .");
+		System.out.println("An exception has been thrown " + ex);
 	}
 	/*@Before("allGetters()")
 	public void secondAdvice() {
