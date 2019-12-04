@@ -1,9 +1,12 @@
 package com.pankaj.aspect;
 
+import org.aspectj.apache.bcel.generic.ReturnaddressType;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -28,6 +31,26 @@ public class LoggingAspect {
 	public void exceptionAdvice(String name,RuntimeException ex) {
 		
 		System.out.println("An exception has been thrown " + ex);
+	}
+	
+	@Around("allGetters()")
+	public Object myAroundAdvice(ProceedingJoinPoint proceedingJoinPoint) {
+		
+		Object returnValue = null;
+		
+		try {
+			System.out.println("Before Advice .");
+			returnValue = proceedingJoinPoint.proceed();
+			System.out.println("After returning .");
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			System.out.println("After throwing .");
+		}
+		
+		System.out.println("After finally . ");
+		return returnValue;
+		
+		
 	}
 	/*@Before("allGetters()")
 	public void secondAdvice() {
