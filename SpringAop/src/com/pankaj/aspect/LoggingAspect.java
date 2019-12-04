@@ -1,17 +1,13 @@
 package com.pankaj.aspect;
 
-import org.aspectj.apache.bcel.generic.ReturnaddressType;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
-
-import com.pankaj.model.Circle;
 
 @Aspect
 public class LoggingAspect {
@@ -33,7 +29,7 @@ public class LoggingAspect {
 		System.out.println("An exception has been thrown " + ex);
 	}
 	
-	@Around("allGetters()")
+	@Around("@annotation(com.pankaj.aspect.Loggable)")
 	public Object myAroundAdvice(ProceedingJoinPoint proceedingJoinPoint) {
 		
 		Object returnValue = null;

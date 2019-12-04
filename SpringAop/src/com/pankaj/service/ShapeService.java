@@ -1,5 +1,6 @@
 package com.pankaj.service;
 
+import com.pankaj.aspect.Loggable;
 import com.pankaj.model.Circle;
 import com.pankaj.model.Triangle;
 
@@ -8,7 +9,7 @@ public class ShapeService {
 	private Circle circle;
 	private Triangle triangle;
 	
-	
+	@Loggable
 	public Circle getCircle() {
 		return circle;
 	}
