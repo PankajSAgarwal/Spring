@@ -20,6 +20,13 @@
     <bean name="shapeService" class="com.pankaj.service.ShapeService" autowire="byName" />
     <bean name="loggingAspect" class="com.pankaj.aspect.LoggingAspect" />
     
+    <aop:config>
+    	<aop:aspect id="loggingAspect" ref="loggingAspect" >
+    		<!--  <aop:pointcut expression="execution(public * get*(..))" id="allGetters"/>-->
+    			<aop:around pointcut="execution(public * get*(..))"   method="myAroundAdvice"/>
+    	</aop:aspect>
+    </aop:config>
+    
     
     
     

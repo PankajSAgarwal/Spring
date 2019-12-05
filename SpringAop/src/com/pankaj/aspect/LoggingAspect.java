@@ -9,10 +9,10 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 
-@Aspect
+
 public class LoggingAspect {
 	
-	@Before("allCircleMethods()")
+	/*@Before("allCircleMethods()")
 	public void LoggingAdvice(JoinPoint joinPoint) {
 		
 		
@@ -27,9 +27,9 @@ public class LoggingAspect {
 	public void exceptionAdvice(String name,RuntimeException ex) {
 		
 		System.out.println("An exception has been thrown " + ex);
-	}
+	}*/
 	
-	@Around("@annotation(com.pankaj.aspect.Loggable)")
+	
 	public Object myAroundAdvice(ProceedingJoinPoint proceedingJoinPoint) {
 		
 		Object returnValue = null;
@@ -53,11 +53,10 @@ public class LoggingAspect {
 		System.out.println("Second advice executed");
 	}*/
 	
-	@Pointcut("execution(public * get*(..))")
-	public void allGetters() {}
+	
 
-	@Pointcut("within(com.pankaj.model.Circle)")
+	/*@Pointcut("within(com.pankaj.model.Circle)")
 	public void allCircleMethods() {
 		
-	}
+	}*/
 }
